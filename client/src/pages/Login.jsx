@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import { assets } from "../assets/assets";
+import { SignIn } from "@clerk/clerk-react";
 
 export default function Login() {
   return (
@@ -50,7 +51,9 @@ export default function Login() {
       </div>
 
       {/* right side : login form */}
-      <div className="flex-1 flex items-center justify-center p-6 sm:p-10"></div>
+      <div className="flex-1 flex items-center justify-center p-6 sm:p-10">
+        <SignIn />
+      </div>
     </div>
   );
 }
