@@ -1,3 +1,8 @@
+## Connections Page
+
+## `Connections.jsx`
+
+```jsx
 import {
   Users,
   UserPlus,
@@ -137,3 +142,4 @@ export default function Connections() {
     </div>
   );
 }
+```
