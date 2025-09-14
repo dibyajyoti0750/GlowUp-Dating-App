@@ -1,3 +1,8 @@
+## Create messages page
+
+## `Messages.jsx`
+
+```jsx
 import { Eye, MessageSquare } from "lucide-react";
 import { dummyConnectionsData } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
@@ -55,3 +60,4 @@ export default function Messages() {
     </div>
   );
 }
+```
