@@ -1,4 +1,4 @@
-#### `Feed.jsx`
+## `Feed.jsx`
 
 ```jsx
 import { useEffect, useState } from "react";
@@ -46,7 +46,7 @@ export default function Feed() {
 }
 ```
 
-#### `components/StoriesBar.jsx`
+## `components/StoriesBar.jsx`
 
 ```jsx
 import { useEffect, useState } from "react";
@@ -139,7 +139,7 @@ export default function StoriesBar() {
 }
 ```
 
-#### `components/StoryModal.jsx`
+## `components/StoryModal.jsx`
 
 ```jsx
 import { ArrowLeft, Sparkle, TextIcon, Upload } from "lucide-react";
@@ -272,7 +272,7 @@ export default function StoryModal({ setShowModal, fetchStories }) {
 }
 ```
 
-#### `App.jsx`
+## `App.jsx`
 
 ```jsx
 import { Toaster } from "react-hot-toast";
@@ -287,9 +287,9 @@ export default function App() {
 
 ---
 
-## Display Stories
+## View Stories
 
-#### `components/StoryViewer.jsx`
+## `components/StoryViewer.jsx`
 
 ```jsx
 import { BadgeCheck, X } from "lucide-react";
@@ -413,7 +413,7 @@ export default function StoryViewer({ viewStory, setViewStory }) {
 }
 ```
 
-#### `StoriesBar.jsx`
+## `StoriesBar.jsx`
 
 ```jsx
         {/* Story cards */}
@@ -438,7 +438,7 @@ export default function StoryViewer({ viewStory, setViewStory }) {
 
 ```
 
-#### `index.css`
+## `index.css`
 
 ```css
 .no-scrollbar::-webkit-scrollbar {
