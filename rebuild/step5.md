@@ -1,4 +1,4 @@
-## Display post list
+## Display all posts
 
 ## `components/PostCard.jsx`
 
