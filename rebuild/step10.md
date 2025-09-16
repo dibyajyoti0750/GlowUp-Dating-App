@@ -1,3 +1,8 @@
+## Create Post Page
+
+## `CreatePost.jsx`
+
+```jsx
 import { useState } from "react";
 import { dummyUserData } from "../assets/assets";
 import { Image, X } from "lucide-react";
@@ -106,3 +111,4 @@ export default function CreatePost() {
     </div>
   );
 }
+```
