@@ -1,3 +1,8 @@
+## Create Chat Page
+
+## `ChatBox.jsx`
+
+```jsx
 import { useEffect, useRef, useState } from "react";
 import { dummyMessagesData, dummyUserData } from "../assets/assets";
 import { ImageIcon, SendHorizonal } from "lucide-react";
@@ -110,3 +115,4 @@ export default function ChatBox() {
     )
   );
 }
+```
