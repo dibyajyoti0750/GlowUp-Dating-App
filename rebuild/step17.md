@@ -1,44 +1,62 @@
-import imagekit from "../configs/imageKit.js";
-import User from "../models/User.js";
-import wrapAsync from "../utils/wrapAsync.js";
-import fs from "fs";
+## ImageKit Setup
 
-// Get user data using userId
-export const getUserData = wrapAsync(async (req, res) => {
-  const { userId } = req.auth();
-  const user = await User.findById(userId);
+**ImageKit** is a cloud-based media optimization service that allows you to **store, transform, optimize, and deliver images/videos** through a global CDN.
 
-  if (!user) {
-    return res.status(404).json({ success: false, message: "User not found" });
-  }
+---
 
-  res.json({ success: true, user });
+### 1. Get API Keys
+
+From your ImageKit dashboard, open **Developer Options** to find your:
+
+- URL Endpoint
+- Public Key
+- Private Key
+
+Add them to your `.env` file:
+
+```env
+IMAGEKIT_PUBLIC_KEY="your_public_key"
+IMAGEKIT_PRIVATE_KEY="your_private_key"
+IMAGEKIT_URL_ENDPOINT="your_url_endpoint"
+```
+
+---
+
+### 2. Install Package
+
+```bash
+npm install imagekit --save
+```
+
+---
+
+### 3. Initialize ImageKit (`configs/imageKit.js`)
+
+```js
+import "dotenv/config";
+import ImageKit from "imagekit";
+
+const imagekit = new ImageKit({
+  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
+
+export default imagekit;
+```
+
+---
+
+### 4. Usage In `userController.js`
+
+```js
+import imagekit from "../configs/imageKit.js";
+import fs from "fs";
 
 // Update user data
 export const updateUserData = wrapAsync(async (req, res) => {
-  const { userId } = req.auth();
-  let { username, bio, location, full_name } = req.body;
 
-  const tempUser = await User.findById(userId);
-
-  // Fallback to existing values if not provided
-  if (!username) username = tempUser.username;
-
-  // Prevent duplicate usernames
-  if (tempUser.username !== username) {
-    const existingUser = await User.findOne({ username });
-    if (existingUser) {
-      username = tempUser.username;
-    }
-  }
-
-  const updatedData = {
-    username,
-    bio,
-    location,
-    full_name,
-  };
+...
 
   const profile = req.files?.profile?.[0];
   const cover = req.files?.cover?.[0];
@@ -144,3 +162,4 @@ export const unfollowUser = wrapAsync(async (req, res) => {
 
   res.json({ success: true, message: "You are no longer following this user" });
 });
+```
